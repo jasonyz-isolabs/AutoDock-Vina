@@ -261,7 +261,7 @@ void read_vina_map(path &filename, std::vector<grid_dims> &gds, grid &g) {
 				gd[i].n_voxels = std::atoi(fields[i + 1].c_str());
 				if (gd[i].n_voxels % 2 == 1) {
 					std::cerr << "ERROR: number of voxels (NELEMENTS) must be even\n";
-					exit(EXIT_FAILURE);
+					throw std::exception();
 				}
 			}
 		}
@@ -343,7 +343,7 @@ void cache::read(const std::string &map_prefix) {
 
 	if (!found_at_least_1_map){
 		std::cerr << "\nERROR: No *.map files with prefix \"" << map_prefix << "\"\n";
-		exit(EXIT_FAILURE) ;
+		throw std::exception() ;
 	}
 
 	// Store in Cache object
@@ -396,7 +396,7 @@ void cache::write(const std::string& out_prefix, const szv& atom_types, const st
 			// of voxels (NELEMENTS) must be even... n_voxels = n_grid_points - 1
 			if (nx % 2 == 1 || ny % 2 == 1 || nz % 2 == 1){
 				std::cerr << "ERROR: Can't write maps. Number of voxels (NELEMENTS) is odd. Use --force_even_voxels.\n";
-				exit(EXIT_FAILURE);
+				throw std::exception();
 			} else {
 
 				filename = out_prefix + "." + atom_type + ".map";

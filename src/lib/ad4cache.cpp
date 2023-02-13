@@ -267,7 +267,7 @@ void read_ad4_map(path& filename, std::vector<grid_dims>& gds, grid& g) {
 				gd[i].n_voxels = std::atoi(fields[i + 1].c_str());
 				if (gd[i].n_voxels % 2 == 1) {
 					std::cerr << "ERROR: number of voxels (NELEMENTS) must be even\n";
-					exit(EXIT_FAILURE);
+					throw std::exception();
 				}
 			}
 		}

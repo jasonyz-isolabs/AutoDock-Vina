@@ -76,7 +76,7 @@ public:
 			} else {
 				std::cerr << "WARNING: Could not determined the number of concurrent thread supported on this machine. ";
 				std::cerr << "You might need to set it manually using cpu argument or fix the issue.\n";
-				exit(EXIT_FAILURE);
+				throw std::exception();
 			}
 		} else {
 			m_cpu = cpu;
@@ -93,7 +93,7 @@ public:
 			set_ad4_weights();
 		} else {
 			std::cerr << "ERROR: Scoring function " << sf_name << " not implemented (choices: vina, vinardo or ad4)\n";
-			exit (EXIT_FAILURE);
+			throw std::exception();
 		}
 	}
 	// Destructor

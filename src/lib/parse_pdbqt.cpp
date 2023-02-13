@@ -650,7 +650,7 @@ model parse_receptor_pdbqt(const std::string& rigid_name, const std::string& fle
     //if (rigid_name.empty() && flex_name.empty()) {
     //    // CONDITION 1
     //    std::cerr << "ERROR: No (rigid) receptor or flexible residues were specified.\n";
-    //    exit(EXIT_FAILURE);
+    //    throw std::exception();
     //}
 
     rigid r;
