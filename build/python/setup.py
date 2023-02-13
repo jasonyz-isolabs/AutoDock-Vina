@@ -345,7 +345,7 @@ obextension = Extension(
 
 setup(
     name='vina',
-    version=find_version(),
+    version='1.2.3',
     author='Diogo Santos Martins, Jerome Eberhardt, Andreas F. Tillack, Stefano Forli',
     author_email='forli@scripps.edu',
     license='Apache-2.0',
